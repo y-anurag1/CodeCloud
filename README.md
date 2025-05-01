@@ -13,7 +13,7 @@ CodeCloud is a clone of LeetCode, a platform for developers to practice coding p
 
 # Demo
 
-You can see the live demo of website at https://fire-code.vercel.app.
+[https://codecloudupes.vercel.app/](https://codecloudupes.vercel.app/)
 
 # Installation
 
