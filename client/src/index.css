@@ -1,0 +1,613 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+html {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: "Inter", sans-serif;
+}
+
+:root {
+    /* Change from dark to light theme */
+    --bg-color: #ffffff;
+    --text-color: #1a202c;  /* Much darker text color */
+    --text-2-color: #e2e8f0; /* Much lighter color for better visibility on dark background */
+    --borders-color: #e2e8f0;
+    --code-color: #f7fafc;
+}
+
+/* Light theme */
+[data-theme='light'] {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --text-2-color: #4a4a4a;
+    --borders-color: #e0e0e0;
+    --code-color: #f5f5f5;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    text-decoration: none;
+}
+
+/* Update selection color */
+::selection {
+    background-color: #4299e1 !important; /* Change from red to blue */
+    color: white;
+}
+
+body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+        monospace;
+}
+
+.code-font {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+        monospace;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #333;
+}
+
+.cm-theme {
+    height: 100%;
+    width: 100%;
+}
+
+/* Problem titles in list */
+.problem-title {
+    color: #e2e8f0 !important; /* Light color for visibility */
+    font-size: 14px !important;
+}
+
+/* Problem description styles */
+#description-body {
+    color: #e2e8f0 !important; /* Light color for visibility */
+}
+
+#description-body > h1,
+#description-body > h2,
+#description-body > h3 {
+    color: #ffffff !important; /* White for headers */
+    font-weight: 600 !important;
+    margin-bottom: 1rem !important;
+}
+
+#description-body > p {
+    color: #e2e8f0 !important; /* Light color for visibility */
+    line-height: 1.6 !important;
+    margin-bottom: 1rem !important;
+}
+
+#description-body > ul,
+#description-body > ol {
+    color: #e2e8f0 !important;
+    margin-left: 1.5rem !important;
+    margin-bottom: 1rem !important;
+}
+
+#description-body > ul > li,
+#description-body > ol > li {
+    color: #e2e8f0 !important;
+    margin-bottom: 0.5rem !important;
+}
+
+/* Example sections */
+#description-body strong {
+    color: #ffffff !important; /* White for emphasis */
+}
+
+/* Code examples */
+#description-body code {
+    color: #e2e8f0 !important;
+    background-color: #1a202c !important;
+    padding: 0.2rem 0.4rem !important;
+    border-radius: 0.25rem !important;
+    font-family: monospace !important;
+}
+
+/* Problem list titles */
+.problem-list-item {
+    color: #e2e8f0 !important;
+}
+
+/* Update the link colors in problem list */
+.problem-list-link {
+    color: #e2e8f0 !important;
+}
+
+.problem-list-link:hover {
+    color: #ffffff !important;
+}
+
+/* Update code editor theme */
+.cm-line,
+.cm-gutters,
+.cm-editor,
+.cm-lineNumbers,
+.cm-foldGutter {
+    background-color: var(--bg-color) !important;
+    color: var(--text-color) !important;
+}
+
+.cm-activeLineGutter,
+.cm-activeLine {
+    background-color: #edf2f7 !important; /* Light gray background for active lines */
+}
+.cm-foldPlaceholder {
+    background-color: black !important;
+    border: none !important;
+}
+
+/* Update problem difficulty colors */
+.hover-easy-bg-color:hover {
+    background-color: #48bb78; /* Softer green */
+}
+.hover-medium-bg-color:hover {
+    background-color: #ed8936; /* Softer orange */
+}
+.hover-hard-bg-color:hover {
+    background-color: #f56565; /* Softer red */
+}
+.hover-easy-bg-color:hover .difficulty-text {
+    color: black;
+}
+.hover-medium-bg-color:hover .difficulty-text {
+    color: black;
+}
+.hover-hard-bg-color:hover .difficulty-text {
+    color: black;
+}
+.hover-easy-bg-color:hover .status-color {
+    border-color: black;
+}
+.hover-medium-bg-color:hover .status-color {
+    border-color: black;
+}
+.hover-hard-bg-color:hover .status-color {
+    border-color: black;
+}
+
+/* Update submission code block */
+.submission-code-block {
+    width: calc(100% - 52px);
+    font-size: 14px;
+    overflow: hidden;
+    height: 42px;
+    overflow-x: scroll;
+    background-color: #edf2f7;
+    padding: 10px 16px 3px 16px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border: 1px solid #e2e8f0;
+    color: #2d3748;
+}
+.submission-error-block {
+    width: calc(100% - 52px);
+    height: fit-content;
+    font-size: 14px;
+    overflow: auto;
+    background-color: #edf2f7;
+    padding: 10px 16px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border: 1px solid #e2e8f0;
+    color: #2d3748;
+}
+
+.circle {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    opacity: 0.8;
+}
+
+.circle-1-animation {
+    animation: circle-1-animation 2s ease-in infinite;
+    animation-delay: 200ms;
+}
+.circle-2-animation {
+    animation: circle-1-animation 2s ease-in infinite;
+    animation-delay: 1300ms;
+}
+.circle-3-animation {
+    animation: circle-1-animation 2s ease-in infinite;
+    animation-delay: 400ms;
+}
+.circle-4-animation {
+    animation: circle-1-animation 2s ease-in infinite;
+    animation-delay: 1500ms;
+}
+.circle-5-animation {
+    animation: circle-1-animation 2s ease-in infinite;
+    animation-delay: 800ms;
+}
+.circle-6-animation {
+    animation: circle-1-animation 2s ease-in infinite;
+    animation-delay: 1900ms;
+}
+.circle-7-animation {
+    animation: circle-1-animation 3s ease-in infinite;
+    animation-delay: 1200ms;
+}
+
+@keyframes circle-1-animation {
+    0% {
+        transform: translate(-50%, 0%);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(-55%, -100%);
+        opacity: 0;
+    }
+    80% {
+        transform: translate(-45%, 20%);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-50%, 0%);
+        opacity: 1;
+    }
+}
+
+.company-logo {
+    height: 50px;
+    filter: brightness(900%);
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.a-g {
+    animation: gradient 1200ms infinite;
+    background-size: 400% 400%;
+    background: linear-gradient(90deg, #f97316, #dc2626);
+}
+
+.setting-title {
+    font-weight: bold;
+    font-size: 24px;
+    border-bottom: 1px solid var(--borders-color);
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+.setting-p {
+    font-size: 14px;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.setting-button-red {
+    font-size: 14px;
+    width: fit-content;
+    padding: 4px 16px;
+    border: 1px solid rgb(220, 38, 38);
+    color: rgb(220, 38, 38);
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+.setting-button-red:hover {
+    color: white;
+    background-color: rgb(220, 38, 38);
+}
+.setting-button-red:active {
+    color: white;
+    background-color: rgb(170, 32, 32);
+}
+
+.setting-hr {
+    width: 100%;
+    border-color: var(--borders-color);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* loading */
+.ispinner {
+    position: relative;
+    width: 20px;
+    height: 20px;
+}
+.ispinner .ispinner-blade {
+    position: absolute;
+    top: 6.5px;
+    left: 8.5px;
+    width: 2.5px;
+    height: 6.5px;
+    background-color: #000;
+    border-radius: 1.25px;
+    animation: iSpinnerBlade 1s linear infinite;
+    will-change: opacity;
+}
+.ispinner .ispinner-blade:nth-child(1) {
+    transform: rotate(45deg) translateY(-6.5px);
+    animation-delay: -1.625s;
+}
+.ispinner .ispinner-blade:nth-child(2) {
+    transform: rotate(90deg) translateY(-6.5px);
+    animation-delay: -1.5s;
+}
+.ispinner .ispinner-blade:nth-child(3) {
+    transform: rotate(135deg) translateY(-6.5px);
+    animation-delay: -1.375s;
+}
+.ispinner .ispinner-blade:nth-child(4) {
+    transform: rotate(180deg) translateY(-6.5px);
+    animation-delay: -1.25s;
+}
+.ispinner .ispinner-blade:nth-child(5) {
+    transform: rotate(225deg) translateY(-6.5px);
+    animation-delay: -1.125s;
+}
+.ispinner .ispinner-blade:nth-child(6) {
+    transform: rotate(270deg) translateY(-6.5px);
+    animation-delay: -1s;
+}
+.ispinner .ispinner-blade:nth-child(7) {
+    transform: rotate(315deg) translateY(-6.5px);
+    animation-delay: -0.875s;
+}
+.ispinner .ispinner-blade:nth-child(8) {
+    transform: rotate(360deg) translateY(-6.5px);
+    animation-delay: -0.75s;
+}
+.ispinner.ispinner-large {
+    width: 35px;
+    height: 35px;
+}
+.ispinner.ispinner-large .ispinner-blade {
+    top: 11.5px;
+    left: 15px;
+    width: 5px;
+    height: 12px;
+    border-radius: 2.5px;
+}
+.ispinner.ispinner-large .ispinner-blade:nth-child(1) {
+    transform: rotate(45deg) translateY(-11.5px);
+}
+.ispinner.ispinner-large .ispinner-blade:nth-child(2) {
+    transform: rotate(90deg) translateY(-11.5px);
+}
+.ispinner.ispinner-large .ispinner-blade:nth-child(3) {
+    transform: rotate(135deg) translateY(-11.5px);
+}
+.ispinner.ispinner-large .ispinner-blade:nth-child(4) {
+    transform: rotate(180deg) translateY(-11.5px);
+}
+.ispinner.ispinner-large .ispinner-blade:nth-child(5) {
+    transform: rotate(225deg) translateY(-11.5px);
+}
+.ispinner.ispinner-large .ispinner-blade:nth-child(6) {
+    transform: rotate(270deg) translateY(-11.5px);
+}
+.ispinner.ispinner-large .ispinner-blade:nth-child(7) {
+    transform: rotate(315deg) translateY(-11.5px);
+}
+.ispinner.ispinner-large .ispinner-blade:nth-child(8) {
+    transform: rotate(360deg) translateY(-11.5px);
+}
+
+/* color: white */
+.ispinner-w {
+    position: relative;
+    width: 20px;
+    height: 20px;
+}
+.ispinner-w .ispinner-w-blade {
+    position: absolute;
+    top: 6.5px;
+    left: 8.5px;
+    width: 2.5px;
+    height: 6.5px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 1.25px;
+    animation: iSpinnerBlade 1s linear infinite;
+    will-change: opacity;
+}
+.ispinner-w .ispinner-w-blade:nth-child(1) {
+    transform: rotate(45deg) translateY(-6.5px);
+    animation-delay: -1.625s;
+}
+.ispinner-w .ispinner-w-blade:nth-child(2) {
+    transform: rotate(90deg) translateY(-6.5px);
+    animation-delay: -1.5s;
+}
+.ispinner-w .ispinner-w-blade:nth-child(3) {
+    transform: rotate(135deg) translateY(-6.5px);
+    animation-delay: -1.375s;
+}
+.ispinner-w .ispinner-w-blade:nth-child(4) {
+    transform: rotate(180deg) translateY(-6.5px);
+    animation-delay: -1.25s;
+}
+.ispinner-w .ispinner-w-blade:nth-child(5) {
+    transform: rotate(225deg) translateY(-6.5px);
+    animation-delay: -1.125s;
+}
+.ispinner-w .ispinner-w-blade:nth-child(6) {
+    transform: rotate(270deg) translateY(-6.5px);
+    animation-delay: -1s;
+}
+.ispinner-w .ispinner-w-blade:nth-child(7) {
+    transform: rotate(315deg) translateY(-6.5px);
+    animation-delay: -0.875s;
+}
+.ispinner-w .ispinner-w-blade:nth-child(8) {
+    transform: rotate(360deg) translateY(-6.5px);
+    animation-delay: -0.75s;
+}
+.ispinner-w.ispinner-w-large {
+    width: 35px;
+    height: 35px;
+}
+.ispinner-w.ispinner-w-large .ispinner-w-blade {
+    top: 11.5px;
+    left: 15px;
+    width: 5px;
+    height: 12px;
+    border-radius: 2.5px;
+}
+.ispinner-w.ispinner-w-large .ispinner-w-blade:nth-child(1) {
+    transform: rotate(45deg) translateY(-11.5px);
+}
+.ispinner-w.ispinner-w-large .ispinner-w-blade:nth-child(2) {
+    transform: rotate(90deg) translateY(-11.5px);
+}
+.ispinner-w.ispinner-w-large .ispinner-w-blade:nth-child(3) {
+    transform: rotate(135deg) translateY(-11.5px);
+}
+.ispinner-w.ispinner-w-large .ispinner-w-blade:nth-child(4) {
+    transform: rotate(180deg) translateY(-11.5px);
+}
+.ispinner-w.ispinner-w-large .ispinner-w-blade:nth-child(5) {
+    transform: rotate(225deg) translateY(-11.5px);
+}
+.ispinner-w.ispinner-w-large .ispinner-w-blade:nth-child(6) {
+    transform: rotate(270deg) translateY(-11.5px);
+}
+.ispinner-w.ispinner-w-large .ispinner-w-blade:nth-child(7) {
+    transform: rotate(315deg) translateY(-11.5px);
+}
+.ispinner-w.ispinner-w-large .ispinner-w-blade:nth-child(8) {
+    transform: rotate(360deg) translateY(-11.5px);
+}
+
+@keyframes iSpinnerBlade {
+    0% {
+        opacity: 0.85;
+    }
+    50% {
+        opacity: 0.25;
+    }
+    100% {
+        opacity: 0.25;
+    }
+}
+
+/*  end of loading */
+
+.sort-loading-backdrop {
+    background-color: #00000000;
+    backdrop-filter: blur(0px);
+    animation: sortLoadingAnimation 100ms forwards;
+}
+@keyframes sortLoadingAnimation {
+    100% {
+        background-color: #00000080;
+        backdrop-filter: blur(2px);
+    }
+}
+
+/* Update status colors for better visibility */
+[class*="text-808080"] {
+    color: #4a5568 !important; /* Darker gray for better contrast */
+}
+
+/* Or better yet, let's add a specific class for this purpose */
+.text-secondary {
+    color: #4a5568 !important;
+}
+
+/* Make sure links are visible */
+#description-body a {
+    color: #3182ce; /* Blue color for links */
+    text-decoration: none;
+}
+
+#description-body a:hover {
+    text-decoration: underline;
+}
+
+/* Make sure all text in the problem area is visible */
+.description-body {
+    color: #2d3748 !important;
+}
+
+/* Ensure problem title at the top is visible */
+.font-bold.mt-\[36px\].ml-\[26px\].text-\[22px\] {
+    color: #1a202c !important;
+}
+
+/* Add specific hover states for better interaction */
+.text-text_2:hover {
+    color: #ffffff;
+}
+
+/* Make sure form placeholders are visible enough */
+input::placeholder {
+    color: #9ca3af !important; /* Lighter gray for placeholders */
+}
+
+/* Problem navbar styling */
+.problem-nav-item {
+    color: #e2e8f0 !important;
+    font-size: 14px !important;
+    transition: color 0.2s ease-in-out !important;
+}
+
+.problem-nav-item:hover {
+    color: #ffffff !important;
+}
+
+.problem-nav-item.active {
+    color: #ffffff !important;
+    font-weight: 500 !important;
+}
+
+/* Update hover rectangle background */
+#hover-rect {
+    background-color: #1a202c !important;
+}
+
+/* Active underline */
+#active-underline {
+    background-color: #ffffff !important;
+    height: 2px !important;
+}
+
+/* Style for form inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    color: #ffffff !important;
+}
+
+/* Style for input placeholders */
+input::placeholder {
+    color: #9ca3af !important;
+    opacity: 1;
+}
+
+/* Style for focused input placeholders */
+input:focus::placeholder {
+    color: #f97316 !important;
+    opacity: 1;
+}
